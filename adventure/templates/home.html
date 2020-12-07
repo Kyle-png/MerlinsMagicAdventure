@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Merlin's Adventure</title>
+    </head>
+    <script type="text/javascript">
+            function addToTable(){
+                alert("test");
+                var table = document.getElementById("id_result_body");
+                var input = document.getElementById("id_action");
+                var newRow = table.outerHTML("<tr><td>Test</td></tr>");//line that needs to work correctly still
+            }
+        </script>
+    <body>
+        
+        <h1>Merlin's Adventure</h1>
+        <table id="id_result_table">
+            <tbody id="id_result_body">
+                <tr>
+                    <td><h1>WELCOME TO MERLIN'S ADVENTURE</h1></td>
+                </tr>
+                <tr>
+                    <td>What is your name weary traveler?</td>
+                </tr>
+                
+            </tbody>
+        </table>
+        <form name="inputForm" action="#" method="post" onsubmit="return addToTable();">
+            <input type="text" name="id_action" id="id_action" placeholder=">"/>
+            <button type="submit" value="submit">T</button>
+        </form>
+        
+        </table>
+    </body>
+</html>

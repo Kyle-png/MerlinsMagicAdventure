@@ -6,7 +6,11 @@ import unittest
 class NewVistorTest(unittest.TestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        #self.browser = webdriver.Firefox()
+        fireFoxOptions = webdriver.FirefoxOptions()
+        fireFoxOptions.headless=True
+        self.browser = webdriver.Firefox(options=fireFoxOptions)
+        self.browser.get('http://localhost:8000')
 
     def tearDown(self):
         self.browser.quit()
@@ -14,7 +18,7 @@ class NewVistorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Terry heard about an online Zork like game
         # He goes to the website.
-        self.browser.get('http://localhost:8000')
+        self.browser.get('http://localhost:8000/home.html')
 
         # He notices the Title and heading
         self.assertIn('Merlin\'s', self.browser.title)

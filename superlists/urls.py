@@ -19,6 +19,6 @@ from adventure import views
 
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
-    #url(r'^$', views.home_page, name='home'),
+    url(r'^$', views.home_page, name='home'),
     url(r'^home.html$', views.home_page, name='home'),
 ]

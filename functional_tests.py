@@ -2,13 +2,13 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 import unittest
-
+import requests
 class NewVistorTest(unittest.TestCase):
 
     def setUp(self):
-        #self.browser = webdriver.Firefox()
         fireFoxOptions = webdriver.FirefoxOptions()
         fireFoxOptions.headless=True
+        #simply choose the desired head option
         self.browser = webdriver.Firefox(options=fireFoxOptions)
         self.browser.get('http://localhost:8000')
 
@@ -18,10 +18,10 @@ class NewVistorTest(unittest.TestCase):
     def test_can_start_a_list_and_retrieve_it_later(self):
         # Terry heard about an online Zork like game
         # He goes to the website.
-        self.browser.get('http://localhost:8000/home.html')
+        self.browser.get('http://localhost:8000')
 
         # He notices the Title and heading
-        self.assertIn('Merlin\'s', self.browser.title)
+        self.assertIn('Merlin\'s Adventure', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('Merlin\'s Adventure', header_text)    
 
@@ -63,5 +63,7 @@ class NewVistorTest(unittest.TestCase):
 
         # 
 
+# if __name__ == '__main__':
+#     unittest.main(warnings='ignore')
 if __name__ == '__main__':
-    unittest.main(warnings='ignore')
+    unittest.main()

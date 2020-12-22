@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+<<<<<<< HEAD
 import requests
+=======
+>>>>>>> 6133baa11f1e37e1372ec31cc3cb776e8dfecdfb
 # from adventure.models import character
 
 

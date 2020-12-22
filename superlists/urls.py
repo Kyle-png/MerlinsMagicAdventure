@@ -21,5 +21,9 @@ import requests
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     url(r'^$', views.home_page, name='home'),
+<<<<<<< HEAD
     #url(r'^home.html$', views.home_page, name='home'),
+=======
+    url(r'^home.html$', views.home_page, name='home'),
+>>>>>>> 6133baa11f1e37e1372ec31cc3cb776e8dfecdfb
 ]

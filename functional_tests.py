@@ -29,26 +29,44 @@ class NewVistorTest(unittest.TestCase):
         inputbox = self.browser.find_element_by_id('id_action')
         self.assertEqual(
             inputbox.get_attribute('placeholder'),
-            '>'
+            'Enter a response'
         )
+        subBtn = self.browser.find_element_by_id('id_subBtn')
 
         #It asks him to enter the character's name
         inputbox.send_keys('Terry')
+        subBtn.click()
+        time.sleep(1)
 
         # The game tells him about his surroundings
         # Terry is able to preform an action
         inputbox.send_keys('Obtain eye of newt')
-
-        # He presses enter
-        inputbox.send_keys(Keys.ENTER)
+        subBtn.click()
         time.sleep(1)
 
-        table = self.browser.find_element_by_id('id_result_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(
-            any(row.text == 'Terry obtained eye of newt from the shelf.' for row in rows),
-            "Nothing obtained!"
+        # He presses enter
+        #inputbox.send_keys(Keys.ENTER)
+        #time.sleep(1)
+
+        # #table = self.browser.find_element_by_id('id_result_table')
+        #tableBody = self.browser.find_element_by_tag_name("tbody")
+        rows = self.browser.find_elements_by_tag_name('tr')
+        # # self.assertTrue(
+        # #     any(row.text == 'Terry obtained eye of newt from the shelf.' for row in rows),
+        # #     "Nothing obtained!"
+        # # )
+
+        self.assertFalse(
+            any(print(row.text) for row in rows),
+            "Nothing no welcome?!"
         )
+
+        self.assertTrue(
+            any(row.text == 'WELCOME TO MERLIN\'S ADVENTURE' for row in rows),
+            "Nothing no welcome?!"
+        )
+
+        
 
         # He sees the webpage update with the text above
         # 

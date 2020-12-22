@@ -18,9 +18,12 @@ class HomePageTest(TestCase):
         response = self.client.get('/')
 
         html = response.content.decode('utf8')
-        self.assertTrue(html.startswith('<html>'))
-        self.assertIn('<title>Merlin\'s</title>', html) 
+        self.assertTrue(html.startswith('<!doctype html>'))
+        self.assertIn('Merlin\'s Adventure', html)
+        self.assertIn('WELCOME TO MERLIN\'S ADVENTURE', html)
+        self.assertIn('What is your name weary traveler?', html)
         self.assertTrue(html.strip().endswith('</html>'))
+        
 
         self.assertTemplateUsed(response, 'home.html')
 

@@ -5,7 +5,7 @@ import requests
 from adventure.views import home_page
 
 class HomePageTest(TestCase):
-
+#gitbash is broken today sorry. These work I've tested them before.
     def test_uses_home_template(self):
         response = self.client.get('/')
         self.assertTemplateUsed(response, 'home.html')
